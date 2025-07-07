@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h2>🔷 Login</h2>
+
+  <form action="/login" method="post" class="mt-4">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="token" class="form-label">JWT Token (optional)</label>
+      <input type="text" name="token" id="token" class="form-control" placeholder="Paste a JWT here (or leave blank)">
+      <div class="form-text">If left blank, your Jupyter notebook can generate a JWT for you later.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

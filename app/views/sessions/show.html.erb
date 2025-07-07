@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <% if @username.present? && @token.present? %>
+    <div class="alert alert-success">
+      <h4 class="alert-heading">👤 Logged in as <%= @username %></h4>
+      <p>Here’s your signed JWT from the session:</p>
+      <code><%= @token %></code>
+    </div>
+
+    <div class="mt-3">
+      <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-danger", data: { turbo: false } %>
+    </div>
+
+  <% else %>
+    <div class="alert alert-warning">
+      <h4 class="alert-heading">❌ Not logged in</h4>
+      <p>Please log in by sending a POST request to <code>/login</code> or use the button below.</p>
+      <%= link_to "Go to login page", login_path, class: "btn btn-primary mt-3" %>
+    </div>
+  <% end %>
+</div>
